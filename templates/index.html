@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Movie revenue predictor</title>
-</head>
-<body>
-<div class="container">
-    {{ wtf.quick_form(form) }}
-</div>
-</body>
-</html>
+{%  extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf%}
+
+    {% block title %}Login{% endblock %}
+
+    {% block content %}
+        <div class="container">
+                    {{ wtf.quick_form(form) }}
+            </div>
+    {% endblock %}

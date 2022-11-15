@@ -1,7 +1,7 @@
 import joblib
 import numpy as np
 
-model = joblib.load('ML-2/models/model.joblib')
+model = joblib.load('ML-2/models/nocompressmodel.joblib')
 
 
 def get_form_data(data):
