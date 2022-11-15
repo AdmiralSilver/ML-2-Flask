@@ -21,7 +21,7 @@ def index():
 
         session['user_info'] = user_info
         session['prediction'] = prediction
-
+        print(session['prediction'])
         return redirect(url_for('index'))
     return render_template('index.html', form=form)
 

@@ -30,6 +30,6 @@ def predict(data, debug=False):
     if debug:
         print('Ordered feature values:')
         print(list(zip(column_order, values)))
-
+    print(list(zip(column_order, values)))
     pred = model.predict(values.reshape(1, -1))
     return str(pred[0])
