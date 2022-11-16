@@ -1,6 +1,6 @@
 from flask import render_template, request, session, redirect, url_for
 
-from movieapp import app
+from __init__ import app
 from forms import DataForm
 from predict import predict
 
