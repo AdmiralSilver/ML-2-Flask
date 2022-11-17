@@ -181,15 +181,11 @@ datasetTrain.groupby('release_year')['popularity'].mean().plot(ax=ax[2], figsize
 datasetTrain.groupby('release_year')['budget'].mean().plot(ax=ax[3], figsize=(10, 10), linewidth=3,
                                                            color='orange').set_title('Budget over the years')
 plt.show()
-# TODO - Comment on the plots and their correlations
+
 print("Movies with budget under 10000: ", len(datasetTrain[datasetTrain['budget'] < 10000]))
-# We can see that there are 835 out of 300 movies that have a budget under 10000, TODO - do something with these?
-# TODO cont- Done later in the code
-#  TODO - maybe some more exploration and visualization
+# We can see that there are 835 out of 300 movies that have a budget under 10000, since alot of the movies have a budget
+# of 0, we change this later.
 #  4**Prepare the data for Machine Learning algorithms**
-#   TODO - Prepare the data for Machine Learning algorithms TODO - Genres, cast, spoken_languages and crew in JSON
-#    TODO cont -format, convert to nominal values.  These columns could be used to create new features such as the
-#     number of genres, number of cast members, number of spoken languages, number of crew members, etc.
 # Many of the features that could be useful is in JSON-format, for example the genres column
 for y in enumerate(datasetTest['genres'][:10]):
     print(y)
@@ -242,7 +238,6 @@ datasetTest['crew_amount'] = datasetTest['crew'].str.count(',') + 1
 print(datasetTest['genres_amount'])
 
 # Converting the nominal values to numerical values
-# TODO - One hot encoding
 datasetTrain[['status',
               'original_language',
               'production_companies',
@@ -343,7 +338,6 @@ print("Gradient Boosting MSE: ", mean_squared_error(y_test, y_pred))
 # We can see that the Random Forest model performed the best
 
 # 6**Fine-tune your models and combine them into a great solution**
-# TODO - Fine-tune your models and combine them into a great solution
 # We will now try to improve the model by tuning the hyperparameters
 # We will use RandomizedSearchCV to find the best hyperparameters
 # Number of trees in random forest
@@ -368,14 +362,14 @@ random_grid = {'n_estimators': n_estimators,
                'bootstrap': bootstrap}
 # Random search of parameters, using 3-fold cross validation,
 # search across 100 different combinations, and use all available cores
-# <-- rf_random = RandomizedSearchCV(estimator=rf, param_distributions=random_grid, n_iter=100, cv=3, verbose=2,
-# <--                              random_state=42, n_jobs=-1)
+rf_random = RandomizedSearchCV(estimator=rf, param_distributions=random_grid, n_iter=100, cv=3, verbose=2,
+                               random_state=42, n_jobs=-1)
 # Fit the random search model
-# <-- rf_random.fit(X_train, y_train)
+rf_random.fit(X_train, y_train)
 # Best parameters
-# <-- print("Best parameters: ", rf_random.best_params_)
+print("Best parameters: ", rf_random.best_params_)
 # Best score
-# <-- print("Best score: ", rf_random.best_score_)
+print("Best score: ", rf_random.best_score_)
 # Best parameters {'n_estimators': 2000, 'min_samples_split': 2, 'min_samples_leaf': 1, 'max_features': 'sqrt',
 # 'max_depth': 10, 'bootstrap': False} Best score 0.688
 # We will now use the best parameters to train the model
@@ -411,11 +405,9 @@ print(feature_importances)
 # can also see that the runtime, cast amount and crew amount are not very important. Going forward we can try to
 # remove these features and see if the model performs better.
 NB_DIR = Path.cwd()
-MODEL_DIR = NB_DIR/'models'
-
-
-dump(rf, MODEL_DIR/'model.joblib', compress=6)
+MODEL_DIR = NB_DIR / 'models'
+dump(rf, MODEL_DIR / 'model.joblib', compress=6)
 # 7**Present your solution**
-# TODO - Present your solution
+
 # 8**Launch, monitor, and maintain your system**
-# TODO - Launch, monitor, and maintain your system
+
