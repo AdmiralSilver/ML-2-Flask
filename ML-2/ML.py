@@ -406,10 +406,10 @@ feature_importances = pd.DataFrame(rf.feature_importances_,
                                    index=X_train.columns,
                                    columns=['importance']).sort_values('importance', ascending=False)
 print(feature_importances)
-# From the results we can see that the most important features are budget and popularity What we learn from this is
-# that the budget and popularity of a movie are the most important factors in determining the revenue of a movie We
-# can also see that the runtime, cast amount and crew amount are not very important Going forward we can try to
-# remove these features and see if the model performs better
+# From the results we can see that the most important features are budget and popularity. What we learn from this is
+# that the budget and popularity of a movie are the most important factors in determining the revenue of a movie. We
+# can also see that the runtime, cast amount and crew amount are not very important. Going forward we can try to
+# remove these features and see if the model performs better.
 NB_DIR = Path.cwd()
 MODEL_DIR = NB_DIR/'models'
 
