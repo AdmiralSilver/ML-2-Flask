@@ -6,7 +6,7 @@ Machinelearning assignment 2
 
 ---   
 
-The Machine-learning script is available as both a [Script](ML-2/ML.py) and [Notebook](ML-2/ML.py)
+The Machine-learning script is available as both a [Script](ML-2/ML.py) and [Notebook](ML-2/ML.ipynb)
 
 ---
 
