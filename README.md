@@ -11,4 +11,4 @@ The Machine-learning script is available as both a [Script](ML-2/ML.py) and [Not
 ---
 
 
-[Report](ML assigment #2.pdf)
+[Report](https://github.com/AdmiralSilver/ML-2-Flask/blob/master/ML%20assigment%20%232.pdf)
